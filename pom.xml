@@ -30,39 +30,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
-            <groupId>org.mule.tools.maven</groupId>
-            <artifactId>mule-maven-plugin</artifactId>
-            <version>2.2.1</version>
-<configuration>
-        <deploymentType>cloudhub</deploymentType>
-<muleVersion>${mule.version}</muleVersion>
-<username>${cloudhub.username}</username>
-<password>${cloudhub.password}</password>
-<applicationName>${artifactId}</applicationName>
-<environment>${cloudhub.env}</environment>
-<region>us-west-2</region>
-<workerType>Micro</workerType>
-<application>target/${artifactId}-${version}.zip</application>
-            <applicationName>${artifactId}</applicationName>
-</configuration>
-        <executions>
-        <execution>
-        <id>deploy</id>
-        <phase>deploy</phase>
-        <goals>
-        <goal>deploy</goal>
-        </goals>
-        </execution>
-        </executions>
-            </plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<version>1.7</version>
@@ -110,6 +77,40 @@
                         </formats>
                     </coverage>
                 </configuration>
+            </plugin>
+            		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+            <groupId>org.mule.tools.maven</groupId>
+            <artifactId>mule-maven-plugin</artifactId>
+            <version>2.2.1</version>
+<configuration>
+        <deploymentType>cloudhub</deploymentType>
+<muleVersion>${mule.version}</muleVersion>
+<username>${cloudhub.username}</username>
+<password>${cloudhub.password}</password>
+<applicationName>${artifactId}</applicationName>
+<environment>${cloudhub.env}</environment>
+<region>us-west-2</region>
+<workerType>Micro</workerType>
+<application>target/${artifactId}-${version}.zip</application>
+            <applicationName>${artifactId}</applicationName>
+</configuration>
+        <executions>
+        <execution>
+        <id>deploy</id>
+        <phase>deploy</phase>
+        <goals>
+        <goal>deploy</goal>
+        </goals>
+        </execution>
+        </executions>
             </plugin>
         </plugins>
 	<testResources>
@@ -213,6 +214,14 @@
             <version>${munit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+             <groupId>com.mulesoft.munit</groupId>
+             <artifactId>munit-remote</artifactId>
+             <version>${munit.version}</version>
+             <scope>test</scope>
+         </dependency>
+        
+        
     </dependencies>
 
 	<repositories>
