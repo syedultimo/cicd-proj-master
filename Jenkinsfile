@@ -3,7 +3,7 @@ pipeline {
   stages {
 	  	stage('Build') { 
 	      steps { 
-	        sh "'C:\Program Files\apache-maven-3.6.1\bin\mvn' clean package --settings 'C:\Program Files\apache-maven-3.6.1\conf\settings.xml' -P foo"
+	        sh "'C:\Program Files\apache-maven-3.6.1\bin\mvn' clean package --settings 'C:\Program Files\apache-maven-3.6.1\conf\settings.xml'-P foo"
 	      }
 	    }
 	    stage('Unit Test') { 
