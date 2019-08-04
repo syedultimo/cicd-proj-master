@@ -16,7 +16,7 @@ pipeline {
 		        ANYPOINT_CREDENTIALS = credentials('anypoint_credentials')
 		      }
 		      steps {
-sh "'/usr/local/Cellar/maven/3.6.1/bin/mvn' deploy -P cloudhub -Dmule.version=3.9.0 -Dcloudhub.username=${ANYPOINT_CREDENTIALS_USR} -Dcloudhub.password=${ANYPOINT_CREDENTIALS_PSW} -Dcloudhub.env=Sandbox" 
+sh "'C:/Program Files/apache-maven-3.6.1/bin/mvn' deploy -P cloudhub -Dmule.version=3.9.0 -Dcloudhub.username=${ANYPOINT_CREDENTIALS_USR} -Dcloudhub.password=${ANYPOINT_CREDENTIALS_PSW} -Dcloudhub.env=Sandbox" 
 		      }
 	    }
   	}
